@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Todo List — 일정 관리</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/todo.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <h1 class="app__title">오늘의 일정</h1>
+
+    <form id="add-form" class="add-form">
+      <label class="sr-only" for="add-text">할 일</label>
+      <input id="add-text" name="text" type="text" placeholder="할 일을 입력하세요"
+             maxlength="100" required autocomplete="off">
+      <label class="sr-only" for="add-due">마감일</label>
+      <input id="add-due" name="due" type="date">
+      <button class="btn btn--primary" type="submit">추가</button>
+    </form>
+
+    <section class="toolbar" aria-label="조회 조건">
+      <div class="filters" role="group" aria-label="상태 필터">
+        <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">전체</button>
+        <button class="filter" type="button" data-filter="active" aria-pressed="false">진행</button>
+        <button class="filter" type="button" data-filter="done" aria-pressed="false">완료</button>
+      </div>
+      <label class="sr-only" for="search">검색</label>
+      <input id="search" class="search" type="search" placeholder="할 일 검색">
+    </section>
+
+    <p id="summary" class="summary" aria-live="polite"></p>
+
+    <ul id="todo-list" class="todo-list"></ul>
+
+    <p id="empty" class="empty" hidden>표시할 일정이 없습니다.</p>
+
+    <button id="clear-done" class="btn btn--ghost" type="button">완료 항목 모두 지우기</button>
+  </main>
+
+  <template id="tpl-view">
+    <li class="todo">
+      <input class="todo__check" type="checkbox" data-action="toggle">
+      <div class="todo__body">
+        <span class="todo__text"></span>
+        <time class="todo__due"></time>
+      </div>
+      <button class="btn btn--small" type="button" data-action="edit">수정</button>
+      <button class="btn btn--small btn--danger" type="button" data-action="delete">삭제</button>
+    </li>
+  </template>
+
+  <template id="tpl-edit">
+    <li class="todo todo--editing">
+      <form class="todo__edit">
+        <input class="todo__edit-text" name="text" type="text" maxlength="100" required aria-label="할 일 수정">
+        <input name="due" type="date" aria-label="마감일 수정">
+        <button class="btn btn--small btn--primary" type="submit">저장</button>
+        <button class="btn btn--small" type="button" data-action="cancel">취소</button>
+      </form>
+    </li>
+  </template>
+</body>
+</html>
