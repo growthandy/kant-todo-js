@@ -5,6 +5,10 @@ KANT CH2 프론트엔드 개발 평가 과제 ② — index.html · css/style.cs
 ## 실행
 `index.html` 을 브라우저로 연다. 데이터는 브라우저 localStorage 에 저장된다.
 
+## 시연 영상
+추가(마감일순 정렬 · 빈 값 거부) → 수정(저장 · 취소) → 완료 토글 → 조회(진행·완료·전체 필터, 검색, 결과 없음) → 삭제(확인 창) · 완료 항목 일괄 삭제 → 새로고침 후 유지(localStorage)
+
+https://github.com/user-attachments/assets/5b928932-073a-4313-b6fd-1ca63e613d9d
 
 ### 단계별 화면 (자동 브라우저 테스트 캡처)
 | 추가 | 수정 | 조회 (필터·검색) | 삭제 후 |
